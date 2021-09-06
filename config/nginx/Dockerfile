@@ -11,7 +11,5 @@ COPY src/ ./
 RUN npm run build
 
 # production stage
-FROM nginx:stable-alpine as production-stage
+FROM nginx:stable-alpine
 COPY --from=build-stage /app/dist /var/www/
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
