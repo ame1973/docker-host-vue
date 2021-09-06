@@ -3,8 +3,8 @@ FROM node:lts-alpine
 # install simple http server for serving static content
 RUN npm install -g http-server
 
-# make the 'app' folder the current working directory
-WORKDIR /src
+# make the 'src' folder the current working directory
+WORKDIR ./src
 
 # install project dependencies
 RUN npm install
