@@ -1,13 +1,13 @@
-FROM nginx:stable-alpine
-
-# Set working directory
-WORKDIR /var/www
-
-# Copy existing application directory contents
-COPY . /var/www
-
-# install project dependencies leaving out dev dependencies
-RUN npm install --production
-
-# build app for production with minification
+# build stage
+FROM node:lts-alpine as build-stage
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
 RUN npm run build
+
+# production stage
+FROM nginx:stable-alpine as production-stage
+COPY --from=build-stage /app/dist /var/www/
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
