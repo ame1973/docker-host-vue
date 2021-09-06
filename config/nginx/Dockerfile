@@ -7,7 +7,7 @@ RUN apk update && apk upgrade && \
 WORKDIR /app
 COPY src/package*.json ./
 RUN npm ci
-COPY . .
+COPY src/ ./
 RUN npm run build
 
 # production stage
