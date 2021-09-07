@@ -1,7 +1,15 @@
 #!/bin/bash
 
-if [ "$1" == "" && "$2" == ""]; then
-    echo "Missing PROJECT_NAME or PROJECT_DOMAIN.com"
+if [ -z "$1" ]
+then
+    echo "Please input PROJECT_NAME arguments!"
+    exit
+fi
+
+if [ -z "$2" ]
+then
+    echo "Please input PROJECT_DOMAIN arguments!"
+    exit
 fi
 
 cp docker-compose.example docker-compose.yml
