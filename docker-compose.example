@@ -9,7 +9,7 @@ services:
       dockerfile: ./config/nginx/Dockerfile
     working_dir: /var/www/
     volumes:
-      #- ./src/dist:/var/www
+      - ./src:/var/www
       - ./volumes/nginx/log:/var/log/nginx
       - ./config/nginx/default.conf:/etc/nginx/conf.d/default.conf
     networks:

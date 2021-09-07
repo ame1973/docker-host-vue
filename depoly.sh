@@ -25,6 +25,8 @@ DIR="./src/"
 if [ -d "$DIR" ]; then
   ### Take action if $DIR exists ###
   echo "[INFO] docker composer runing. ${DIR}..."
+  docker-compose up -d
+
 else
   ###  Control will jump here if $DIR does NOT exists ###
   echo "[ERROR] ${DIR} not found. Can not continue."
