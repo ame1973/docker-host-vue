@@ -11,7 +11,7 @@ services:
     working_dir: /var/www/
     volumes:
       - ./src:/var/www
-    entrypoint: ["npm ci && npm run build"]
+    entrypoint: ["bash", "-c","npm ci && npm run build"]
     networks:
       - internal
 
