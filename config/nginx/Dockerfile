@@ -5,9 +5,9 @@ RUN apk update && apk upgrade && \
     apk add --no-cache bash git openssh
 
 WORKDIR /var/www
-COPY src/package*.json ./
+# COPY src/package*.json ./
 RUN npm ci
-COPY src/ ./
+# COPY src/ ./
 RUN npm run build
 
 # production stage
