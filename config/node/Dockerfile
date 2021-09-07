@@ -5,9 +5,6 @@ FROM node:lts-alpine as build-stage
 RUN apk update && apk upgrade && \
     apk add --no-cache bash git openssh
 
-# Clear cache
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
-
 # Set working directory
 WORKDIR /var/www
 
