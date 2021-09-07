@@ -12,4 +12,4 @@ RUN npm run build
 
 # production stage
 FROM nginx:stable-alpine
-COPY --from=build-stage /app/dist /var/www/dist/
+COPY --from=build-stage /app/dist /var/www/dist
