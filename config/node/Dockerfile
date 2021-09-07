@@ -4,13 +4,3 @@ FROM node:lts-alpine
 # Install system dependencies
 RUN apk update && apk upgrade && \
     apk add --no-cache bash git openssh
-
-# Set working directory
-WORKDIR /var/www
-
-# Copy existing application directory contents
-COPY src/ ./
-
-# npm install and build vue dist
-RUN npm ci
-RUN npm run build
