@@ -2,19 +2,6 @@ version: "3.7"
 
 services:
   
-  node:
-    build:
-      context: .
-      dockerfile: ./config/node/Dockerfile
-    restart: unless-stopped
-    tty: true
-    working_dir: /var/www/
-    volumes:
-      - ./src:/var/www
-    entrypoint: ["bash", "-c","npm ci && npm run build"]
-    networks:
-      - internal
-
   nginx:
     image: nginx:stable-alpine
     restart: unless-stopped
